@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "generate": "go generate ./..."
+    "generate": "go generate ./...",
+    "start": "go run cmd/ama/main.go"
   }
 }
