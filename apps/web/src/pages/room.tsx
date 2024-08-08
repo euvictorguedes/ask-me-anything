@@ -14,7 +14,7 @@ export function Room() {
       navigator.share({ url });
     } else {
       navigator.clipboard.writeText(url);
-      toast.info("The room url was copied to your clipboard!");
+      toast.info("O link da sala foi copiado para a área de trasnferência!");
     }
   }
 
