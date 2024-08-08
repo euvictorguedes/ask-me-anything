@@ -1,8 +1,9 @@
+import { Suspense } from "react";
 import { useParams } from "react-router-dom";
 import { ArrowRight, Share2 } from "lucide-react";
 import { toast } from "sonner";
 
-import { Message } from "../components/message";
+import { Messages } from "../components/messages";
 
 export function Room() {
   const { roomId } = useParams();
@@ -57,43 +58,9 @@ export function Room() {
         </button>
       </form>
 
-      <ol className="list-decimal list-outside px-3 space-y-8">
-        <Message
-          text="O que é GoLang e quais são suas principais vantagens em comparação com
-      outras linguagens de programação como Python, Java ou C++?"
-          amountOfReactions={182}
-          answered
-        />
-        <Message
-          text="Como funcionam as goroutines em GoLang e por que elas são importantes
-          para a concorrência e paralelismo?"
-          amountOfReactions={173}
-        />
-        <Message
-          text="Quais são as melhores práticas para organizar o código em um projeto
-          GoLang, incluindo pacotes, módulos e a estrutura de diretórios?"
-          amountOfReactions={87}
-        />
-        <Message
-          text="Como fazer a depuração de programas GoLang e quais ferramentas são
-          recomendadas para isso?"
-          amountOfReactions={42}
-        />
-        <Message
-          text="Quais são os primeiros passos para começar a programar em GoLang,
-          incluindo a instalação do ambiente de desenvolvimento, configuração e
-          execução do primeiro programa?"
-          amountOfReactions={13}
-        />
-        <Message
-          text="Como funciona o gerenciamento de memória em GoLang, incluindo a coleta
-          de lixo (garbage collection)? Quais são as implicações de desempenho e
-          como otimizar o uso de memória em programas Go? Quais são as
-          diferenças entre alocação na stack e no heap, e como essas diferenças
-          afetam a eficiência do programa?"
-          amountOfReactions={4}
-        />
-      </ol>
+      <Suspense fallback={<p>Carregando...</p>}>
+        <Messages />
+      </Suspense>
     </div>
   );
 }
