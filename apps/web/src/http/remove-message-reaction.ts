@@ -7,7 +7,6 @@ export async function removeMessageReaction({
   roomId,
   messageId,
 }: RemoveMessageReaction) {
-  console.log("???");
   await fetch(
     `${
       import.meta.env.VITE_APP_API_URL
